@@ -1,3 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        font-size: 16px;
+    }
+}
+
+@layer utilities {
+    .overflow-clip-content {
+        overflow-clip-margin: content-box;
+    }
+
+    @keyframes logo-marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-50% - 24px));
+        }
+    }
+
+    .animate-logo-marquee {
+        width: fit-content;
+        display: flex;
+        animation: logo-marquee 20s linear infinite;
+    }
+}
+
+@layer components {
+    .section-title {
+        @apply text-[32px] leading-[1.4em] font-lora text-3;
+    }
+
+    .section-content {
+        @apply text-md leading-[1.3em];
+    }
+}
+
+@layer components {
+    .star {
+        @apply relative inline-block;
+    }
+
+    .star::before {
+        content: '★';
+        @apply text-yellow-400;
+        font-size: 1.5rem;
+    }
+
+    .star-filled::before {
+        @apply text-yellow-400;
+    }
+
+    .star-half::before {
+        background: linear-gradient(90deg, #fbbf24 50%, #d1d5db 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .star-empty::before {
+        @apply text-gray-300;
+    }
+}
