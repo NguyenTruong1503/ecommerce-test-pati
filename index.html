@@ -18,51 +18,107 @@
 
     <!-- Section-Main-Products -->
     <section>
-        <div class="mx-auto max-w-pagn-width md:px-12.5 py-8 font-nunito">
+        <div class="mx-auto max-w-pagn-width px-[1.5rem] md:px-12.5 py-8 font-nunito">
             <div class="flex gap-16 flex-col md:flex-row">
                 <!-- Left: hero image + badge + CTA -->
-                <div class="flex-1">
-                    <div class="relative flex justify-center bg-white">
-                        <img src="./assets/images/hero-product-image.jpg" alt="Lymphatic Drainage Bottle"
-                            class="w-full object-cover aspect-square overflow-hidden rounded-lg overflow-clip-content">
-                        <img src="./assets/images/nysale.avif" alt="New Years Sale"
-                            class="absolute top-4 right-4 max-w-[120px] block object-cover aspect-square rounded-lg overflow-hidden overflow-clip-content">
+                <div class="flex-1 min-w-0">
+                    <!-- Mobile Gallery (< 679px) -->
+                    <div class="md:hidden product-gallery">
+                        <!-- Main Image Stage -->
                         <div
-                            class="absolute bottom-8 z-10 flex justify-center gap-2 leading-4 max-w-72 py-2 px-6 bg-button-primary border border-solid border-black rounded-3xl cursor-pointer text-[14px]">
-                            <img src="./assets/images/icon-leaf-nutrition.png" alt="Nutritional Information"
-                                class="w-6 h-6 object-cover aspect-square rounded-lg overflow-hidden overflow-clip-content">
-                            <span class="flex items-center">Nutritional Information</span>
+                            class="relative w-full aspect-square bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm mb-4 group">
+                            <!-- Main Image Tag -->
+                            <img id="main-product-image"
+                                src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard2.jpg?v=1760103684"
+                                alt="Lymphatic Drainage Product"
+                                class="w-full h-full object-cover object-center transition-opacity duration-300">
+
+                            <!-- Badges -->
+                            <div class="absolute top-4 right-4 z-10">
+                                <div
+                                    class="bg-red-600 text-white w-20 h-20 rounded-full flex flex-col items-center justify-center text-center font-bold text-sm shadow-md animate-pulse">
+                                    <span>New Years</span>
+                                    <span class="text-xs">Sale</span>
+                                    <span class="text-xs">✦</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 w-max">
+                                <div
+                                    class="flex justify-center gap-2 items-center py-2 px-6 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full shadow-sm cursor-pointer hover:bg-white transition-colors">
+                                    <span class="text-green-primary text-xl">🍃</span>
+                                    <span class="flex items-center font-bold text-sm text-gray-800">Nutritional
+                                        Information</span>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Arrows -->
+                            <button id="gallery-prev" class="gallery-nav-btn left-4 opacity-0 group-hover:opacity-100">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button id="gallery-next" class="gallery-nav-btn right-4 opacity-0 group-hover:opacity-100">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 18L15 12L9 6" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnails Slider -->
+                        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x" id="thumbnail-container">
+                            <!-- Thumbnails are generated by JS below to match the content -->
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 mx-0 my-4">
-                        <div>
-                            <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard2.jpg?v=1760103684"
+
+                    <!-- Desktop Layout (>= 679px) -->
+                    <div class="hidden md:block">
+                        <div class="relative flex justify-center bg-white">
+                            <img src="./assets/images/hero-product-image.jpg" alt="Lymphatic Drainage Bottle"
+                                class="w-full object-cover aspect-square overflow-hidden rounded-lg overflow-clip-content">
+                            <img src="./assets/images/nysale.avif" alt="New Years Sale"
+                                class="absolute top-4 right-4 max-w-[120px] block object-cover aspect-square rounded-lg overflow-hidden overflow-clip-content">
+                            <div
+                                class="absolute bottom-8 z-10 flex justify-center gap-2 leading-4 max-w-72 py-2 px-6 bg-button-primary border border-solid border-black rounded-3xl cursor-pointer text-[14px]">
+                                <img src="./assets/images/icon-leaf-nutrition.png" alt="Nutritional Information"
+                                    class="w-6 h-6 object-cover aspect-square rounded-lg overflow-hidden overflow-clip-content">
+                                <span class="flex items-center">Nutritional Information</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mx-0 my-4">
+                            <div>
+                                <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard2.jpg?v=1760103684"
+                                    class="object-cover aspect-square rounded-lg overflow-hidden">
+                            </div>
+                            <div>
+                                <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard3copy.jpg?v=1760103684"
+                                    class="object-cover aspect-square rounded-lg overflow-hidden">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mx-0 my-4">
+                            <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard4.jpg?v=1760103685"
+                                alt="Lymphatic Drainage Visual 1"
+                                class="object-cover aspect-square rounded-lg overflow-hidden">
+                            <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_1.jpg?v=1760103685"
+                                alt="Lymphatic Drainage Visual 2"
+                                class="object-cover aspect-square rounded-lg overflow-hidden">
+                            <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_2.jpg?v=1760103685"
+                                alt="Lymphatic Drainage Visual 3"
                                 class="object-cover aspect-square rounded-lg overflow-hidden">
                         </div>
-                        <div>
-                            <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard3copy.jpg?v=1760103684"
-                                class="object-cover aspect-square rounded-lg overflow-hidden">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 mx-0 my-4">
-                        <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard4.jpg?v=1760103685"
-                            alt="Lymphatic Drainage Visual 1"
-                            class="object-cover aspect-square rounded-lg overflow-hidden">
-                        <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_1.jpg?v=1760103685"
-                            alt="Lymphatic Drainage Visual 2"
-                            class="object-cover aspect-square rounded-lg overflow-hidden">
-                        <img src="https://trysculptique.com/cdn/shop/files/LymphDrainageREWAMPEDvisualsArtboard5_2.jpg?v=1760103685"
-                            alt="Lymphatic Drainage Visual 3"
-                            class="object-cover aspect-square rounded-lg overflow-hidden">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 mx-0 my-4">
-                        <div>
-                            <img src="https://trysculptique.com/cdn/shop/files/tiredness-min.png?v=1758713216"
-                                class="object-cover aspect-square rounded-lg overflow-hidden">
-                        </div>
-                        <div>
-                            <img src="https://trysculptique.com/cdn/shop/files/puffiness-min.png?v=1758713216"
-                                class="object-cover aspect-square rounded-lg overflow-hidden">
+                        <div class="grid grid-cols-2 gap-4 mx-0 my-4">
+                            <div>
+                                <img src="https://trysculptique.com/cdn/shop/files/tiredness-min.png?v=1758713216"
+                                    class="object-cover aspect-square rounded-lg overflow-hidden">
+                            </div>
+                            <div>
+                                <img src="https://trysculptique.com/cdn/shop/files/puffiness-min.png?v=1758713216"
+                                    class="object-cover aspect-square rounded-lg overflow-hidden">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,6 +202,8 @@
                             </div>
                         </div>
                     </div>
+
+
 
                     <div class="p-3 rounded-lg mb-4 mt-0 bg-[#f3eee0]">
                         <div class="">
@@ -441,23 +499,12 @@
     <!-- Section-As-Seen-In -->
     <section class="bg-[#f2ecdf] py-6 overflow-hidden">
         <div class="text-center text-2xl font-lora mb-8">As Seen In</div>
-
-        <!-- 
-            VẤN ĐỀ CŨ: Chỉ có 2 dải logo -> Không đủ lấp đầy màn hình rộng -> Lòi ra khoảng trống.
-            GIẢI PHÁP MỚI: Mask gradient 2 bên + 4 Dải logo chạy liên tiếp.
-        -->
         <div class="relative flex overflow-hidden select-none group">
 
-            <!-- Hiệu ứng làm mờ 2 bên (Optional - giúp nhìn chuyên nghiệp hơn) -->
             <div class="absolute left-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-r from-[#f2ecdf] to-transparent"></div>
             <div class="absolute right-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-l from-[#f2ecdf] to-transparent"></div>
 
-            <!-- Wrapper chứa các dải logo -->
             <div class="flex">
-                <!-- 
-                    DẢI 1 
-                    Lưu ý: min-w-full hoặc flex-shrink-0 để nó không bị co lại
-                -->
                 <div class="flex flex-shrink-0 items-center gap-16 pr-16 animate-marquee">
                     <img src="https://trysculptique.com/cdn/shop/files/WH_Logo_500x.png?v=1752348678"
                         class="h-10 object-contain" alt="Women's Health">
@@ -469,7 +516,6 @@
                         class="h-10 object-contain" alt="Women's Health">
                 </div>
 
-                <!-- DẢI 2 (Copy y hệt) -->
                 <div class="flex flex-shrink-0 items-center gap-16 pr-16 animate-marquee">
                     <img src="https://trysculptique.com/cdn/shop/files/WH_Logo_500x.png?v=1752348678"
                         class="h-10 object-contain" alt="Women's Health">
@@ -481,7 +527,7 @@
                         class="h-10 object-contain" alt="Women's Health">
                 </div>
 
-                <!-- DẢI 3 (Copy thêm để lấp đầy màn hình to) -->
+                <!-- DẢI 3 -->
                 <div class="flex flex-shrink-0 items-center gap-16 pr-16 animate-marquee">
                     <img src="https://trysculptique.com/cdn/shop/files/WH_Logo_500x.png?v=1752348678"
                         class="h-10 object-contain" alt="Women's Health">
@@ -493,7 +539,7 @@
                         class="h-10 object-contain" alt="Women's Health">
                 </div>
 
-                <!-- DẢI 4 (Copy thêm để dự phòng cho màn hình cực rộng 4k) -->
+                <!-- DẢI 4 -->
                 <div class="flex flex-shrink-0 items-center gap-16 pr-16 animate-marquee">
                     <img src="https://trysculptique.com/cdn/shop/files/WH_Logo_500x.png?v=1752348678"
                         class="h-10 object-contain" alt="Women's Health">
@@ -510,14 +556,16 @@
 
     <!-- SymptomsSection -->
     <section>
-        <div class="pt-14 mx-auto max-w-pagn-width md:px-12.5 font-nunito">
+        <div class="pt-14 mx-auto max-w-pagn-width px-6 md:px-12.5 font-nunito">
             <div class="max-w-title-width m-auto">
                 <h2 class="text-32 leading-1.3 my-4 font-normal font-lora text-center">Why Your <span
                         class="text-green-primary">Bloating, Brain Fog & Swollen Legs</span> Are Actually Connected</h2>
                 <p class="text-18 my-4 leading-1.3 text-center">If you're experiencing more than one of these symptoms,
                     your body is trying to tell you something:</p>
             </div>
-            <div class="flex gap-4 mt-10">
+
+            <!-- version-mobile -->
+            <div class="grid gap-2 mt-10 md:hidden">
                 <div class="w-full rounded-md overflow-hidden">
                     <div>
                         <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_3.png?v=1760689800"
@@ -570,6 +618,63 @@
                     </div>
                 </div>
             </div>
+
+            <!-- version-desktop -->
+
+            <div class="hidden md:flex md:gap-4">
+                <div class="w-full rounded-md overflow-hidden">
+                    <div>
+                        <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_3.png?v=1760689800"
+                            alt="Bloating" class="w-full min-h-150">
+                    </div>
+                    <div class="min-h-150 p-4 text-center bg-light-gray">
+                        <p class="m-0 leading-1.3 text-md">Your stomach is flat in the morning, but by evening you look
+                            six
+                            months pregnant.</p>
+                    </div>
+                </div>
+                <div class="w-full rounded-md overflow-hidden">
+                    <div>
+                        <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_3_1.png?v=1760689799"
+                            alt="Bloating" class="w-full min-h-150">
+                    </div>
+                    <div class="min-h-150 p-4 text-center bg-light-gray">
+                        <p class="m-0 leading-1.3 text-md">Your ankles disappear into "kankles" by the end of the day.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full rounded-md overflow-hidden">
+                    <div>
+                        <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_4.png?v=1760689801"
+                            alt="Bloating" class="w-full min-h-150">
+                    </div>
+                    <div class="min-h-150 p-4 text-center bg-light-gray">
+                        <p class="m-0 leading-1.3 text-md">That dimpled, cottage cheese texture on your thighs won't go
+                            away no matter what you try.</p>
+                    </div>
+                </div>
+                <div class="w-full rounded-md overflow-hidden">
+                    <div>
+                        <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_4_1.png?v=1760689799"
+                            alt="Bloating" class="w-full min-h-150">
+                    </div>
+                    <div class="min-h-150 p-4 text-center bg-light-gray">
+                        <p class="m-0 leading-1.3 text-md">You feel foggy and exhausted even after a full night's sleep.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full rounded-md overflow-hidden">
+                    <div>
+                        <img src="https://trysculptique.com/cdn/shop/files/Untitled_design_3_2.png?v=1760689799"
+                            alt="Bloating" class="w-full min-h-150">
+                    </div>
+                    <div class="min-h-150 p-4 text-center bg-light-gray">
+                        <p class="m-0 leading-1.3 text-md">You wake up stiff and achy, like your body aged overnight.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="w-full m-auto max-w-why-note-image">
                 <img src="https://trysculptique.com/cdn/shop/files/Group_7207.png?v=1760690771" alt=""
                     class="w-full block">
