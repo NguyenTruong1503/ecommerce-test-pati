@@ -66,5 +66,9 @@ export default {
       },
     },
   },
+  screens: {
+    'mobile': {'max': '678px'},
+    'md' : '679px',
+  },
   plugins: [],
 }
